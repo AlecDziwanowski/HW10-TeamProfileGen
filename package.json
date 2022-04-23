@@ -22,5 +22,8 @@
   "homepage": "https://github.com/AlecDziwanowski/HW10-TeamProfileGen#readme",
   "dependencies": {
     "inquirer": "^8.2.2"
+  },
+  "devDependencies": {
+    "jest": "^27.5.1"
   }
 }
