@@ -23,37 +23,7 @@ describe('Employee', () => {
     
     // test getName
     describe('getName', () => {
-        it('should', () => {
-            // arrange
-            // act
-            // assert 
-            expect(employee.name).toEqual('Alec');           
-        });
-    });
-    
-    // test getName
-    describe('getId', () => {
-        it('should', () => {
-            // arrange
-            // act
-            // assert  
-            expect(employee.name).toEqual('Alec');          
-        });
-    });
-    
-    // test getEmail
-    describe('getEmail', () => {
-        it('should', () => {
-            // arrange
-            // act
-            // assert    
-            expect(employee.name).toEqual('Alec');        
-        });
-    });
-    
-    // test getRole
-    describe('getRole', () => {
-        it('should return Employee as when getRole is called', () => {
+        it('should return Alec as name when getName is called', () => {
             // arrange
             let name = 'Alec';
             let id  = 1;
@@ -61,10 +31,61 @@ describe('Employee', () => {
             let employee = new Employee(name, id, email);
 
             // act
-            let role = employee.getRole();
+            let getName = employee.getName();
+
+            // assert 
+            expect(getName).toEqual('Alec');           
+        });
+    });
+    
+    // test getName
+    describe('getId', () => {
+        it('should return 1 as id when getId is called', () => {
+            // arrange
+            let name = 'Alec';
+            let id  = 1;
+            let email = 'alecdziwanowski@gmail.com';
+            let employee = new Employee(name, id, email);
+
+            // act
+            let getId = employee.getId();
+
+            // assert 
+            expect(getId).toEqual(1);          
+        });
+    });
+    
+    // test getEmail
+    describe('getEmail', () => {
+        it('should return adziwanowski@gmail.com as email when getEmail is called', () => {
+            // arrange
+            let name = 'Alec';
+            let id  = 1;
+            let email = 'alecdziwanowski@gmail.com';
+            let employee = new Employee(name, id, email);
+
+            // act
+            let getEmail = employee.getEmail();
+
+            // assert 
+            expect(getEmail).toEqual('alecdziwanowski@gmail.com');       
+        });
+    });
+    
+    // test getRole
+    describe('getRole', () => {
+        it('should return Employee as role when getRole is called', () => {
+            // arrange
+            let name = 'Alec';
+            let id  = 1;
+            let email = 'alecdziwanowski@gmail.com';
+            let employee = new Employee(name, id, email);
+
+            // act
+            let getRole = employee.getRole();
 
             // assert
-            expect(role).toEqual('Employee'); 
+            expect(getRole).toEqual('Employee'); 
         });
     });
 });
