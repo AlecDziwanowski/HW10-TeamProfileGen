@@ -1,7 +1,7 @@
 // access engineer so that it can be tested in this file
 const Engineer = require('../lib/Engineer');
 
-// establish tests to be run for employee
+// establish tests to be run for engineer
 describe('Engineer', () => {
     // test that constructor is functioning properly
     describe('Initialization', () => {
@@ -10,7 +10,7 @@ describe('Engineer', () => {
             let name = 'Alec';
             let id  = 1;
             let email = 'alecdziwanowski@gmail.com';
-            let github = "adziwanowski";
+            let github = 'adziwanowski';
 
             // act
             let employee = new Engineer(name, id, email, github);
@@ -30,7 +30,7 @@ describe('Engineer', () => {
             let name = 'Alec';
             let id  = 1;
             let email = 'alecdziwanowski@gmail.com';
-            let github = "adziwanowski";
+            let github = 'adziwanowski';
             let employee = new Engineer(name, id, email, github);
 
             // act
@@ -48,7 +48,7 @@ describe('Engineer', () => {
             let name = 'Alec';
             let id  = 1;
             let email = 'alecdziwanowski@gmail.com';
-            let github = "adziwanowski";
+            let github = 'adziwanowski';
             let employee = new Engineer(name, id, email, github);
 
             // act
