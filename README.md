@@ -50,6 +50,5 @@ You are required to submit the following for review:
     "start": "node index.js",
     "reset": "node reset.js"
 * determine what reset.js does
-* classes inherit tests from employee.test.js
 * list of questions at 3:51
 * add validation for user inputs?
