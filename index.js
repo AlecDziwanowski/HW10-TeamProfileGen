@@ -153,7 +153,7 @@ function writeHTML(employees) {
         <h1 class="text-center bg-danger text-white p-5">My Team</h1>
     </header>
 
-    <main class="d-flex justify-content-center">
+    <main class="d-flex justify-content-center flex-wrap">
     ${generateCards(employees)}
     </main>
 </body>
@@ -166,6 +166,7 @@ function writeHTML(employees) {
 }
 
 function generateCards(employees) {
+    employeeCards = "";
     employees.forEach(employee => {
         console.log(employee.getRole());
         console.log(employee);
@@ -173,8 +174,8 @@ function generateCards(employees) {
         console.log(employee.getRole() === 'Manager');
 
         if (employee.getRole() === 'Manager') {
-            return `
-        <section class="card border rounded m-3 customShadow">
+            employeeCards += 
+    `   <section class="card border rounded m-3 customShadow col-2">
             <div class="bg-primary card-body text-white border rounded-top">
                 <h2 class="card-title">${employee.name}</h2>
                 <h3 class="card-title">👔 Manager</h3>
@@ -187,41 +188,42 @@ function generateCards(employees) {
                 </ul>
             </div>
         </section>
-        `
-        // } else if (employee.getRole() === 'Engineer') {
-        //     return `
-        // <section class="card border rounded m-3 customShadow">
-        //     <div class="bg-primary card-body text-white border rounded-top">
-        //         <h2 class="card-title">${employee.name}</h2>
-        //         <h3 class="card-title">💻 Engineer</h3>
-        //     </div>
-        //     <div class="bg-light border rounded-bot">
-        //         <ul class="list-group m-4">
-        //             <li class="list-group-item">ID: ${employee.id}</li>
-        //             <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
-        //             <li class="list-group-item">GitHub: ${employee.github}</li>
-        //         </ul>
-        //     </div>
-        // </section>
-        // `
-        // } else if (employee.getRole() === 'Intern') {
-        //     return `
-        // <section class="card border rounded m-3 customShadow">
-        //     <div class="bg-primary card-body text-white border rounded-top">
-        //         <h2 class="card-title">${employee.name}</h2>
-        //         <h3 class="card-title">🎓 Intern</h3>
-        //     </div>
-        //     <div class="bg-light border rounded-bot">
-        //         <ul class="list-group m-4">
-        //             <li class="list-group-item">ID: ${employee.id}</li>
-        //             <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
-        //             <li class="list-group-item">School: ${employee.school}</li>
-        //         </ul>
-        //     </div>
-        // </section>
-        // `
+    `
+        } else if (employee.getRole() === 'Engineer') {
+            employeeCards += 
+    `    <section class="card border rounded m-3 customShadow col-2">
+            <div class="bg-primary card-body text-white border rounded-top">
+                <h2 class="card-title">${employee.name}</h2>
+                <h3 class="card-title">💻 Engineer</h3>
+            </div>
+            <div class="bg-light border rounded-bot">
+                <ul class="list-group m-4">
+                    <li class="list-group-item">ID: ${employee.id}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+                    <li class="list-group-item">GitHub: ${employee.github}</li>
+                </ul>
+            </div>
+        </section>
+    `
+        } else if (employee.getRole() === 'Intern') {
+            employeeCards += 
+    `    <section class="card border rounded m-3 customShadow col-2">
+            <div class="bg-primary card-body text-white border rounded-top">
+                <h2 class="card-title">${employee.name}</h2>
+                <h3 class="card-title">🎓 Intern</h3>
+            </div>
+            <div class="bg-light border rounded-bot">
+                <ul class="list-group m-4">
+                    <li class="list-group-item">ID: ${employee.id}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+                    <li class="list-group-item">School: ${employee.school}</li>
+                </ul>
+            </div>
+        </section>
+    `
         }
     });
+    return employeeCards;
 }
 
 
