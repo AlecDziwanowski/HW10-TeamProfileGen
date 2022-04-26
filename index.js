@@ -128,15 +128,13 @@ function nextAction() {
                 internPrompts();
             } else {
                 writeHTML(employees);
-                process.exit();
             }
         });
 }
 
 function writeHTML(employees) {
     // Write the following text to a new html file
-    console.log(employees[0].name);
-    fs.writeFile('dist/team.html', `
+    fs.writeFile('./dist/team.html', `
 <!DOCTYPE html>
 <html lang="en">
 
@@ -147,12 +145,12 @@ function writeHTML(employees) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>[Team HasselHoff]</title>
+    <title>My Team</title>
 </head>
 
 <body>
     <header>
-        <h1 class="text-center bg-danger text-white p-5">[Team HasselHoff]</h1>
+        <h1 class="text-center bg-danger text-white p-5">My Team</h1>
     </header>
 
     <main class="d-flex justify-content-center">
@@ -161,27 +159,69 @@ function writeHTML(employees) {
 </body>
 
 </html>
-`
-        , err =>
-            err ? console.error(err) : console.log('Generating Web page...'))
+`, err => {
+        err ? console.error(err) : console.log('Generating Web page...');
+        process.exit();
+    })
 }
 
 function generateCards(employees) {
-    return `
-<section class="card border rounded m-3 customShadow">
-    <div class="bg-primary card-body text-white border rounded-top">
-        <h2 class="card-title">${employees[0].name}</h2>
-        <h3 class="card-title">[👔 Manager]</h3>
-    </div>
-    <div class="bg-light border rounded-bot">
-        <ul class="list-group m-4">
-            <li class="list-group-item">ID: ${employees[0].id}</li>
-            <li class="list-group-item">Email: <a href="mailto:${employees[0].email}">${employees[0].email}</a></li>
-            <li class="list-group-item">[Office Number: [240]]</li>
-        </ul>
-    </div>
-</section>
-`;
+    employees.forEach(employee => {
+        console.log(employee.getRole());
+        console.log(employee);
+        console.log(employee.name);
+        console.log(employee.getRole() === 'Manager');
+
+        if (employee.getRole() === 'Manager') {
+            return `
+        <section class="card border rounded m-3 customShadow">
+            <div class="bg-primary card-body text-white border rounded-top">
+                <h2 class="card-title">${employee.name}</h2>
+                <h3 class="card-title">👔 Manager</h3>
+            </div>
+            <div class="bg-light border rounded-bot">
+                <ul class="list-group m-4">
+                    <li class="list-group-item">ID: ${employee.id}</li>
+                    <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+                    <li class="list-group-item">[Office Number: ${employee.officeNumber}</li>
+                </ul>
+            </div>
+        </section>
+        `
+        // } else if (employee.getRole() === 'Engineer') {
+        //     return `
+        // <section class="card border rounded m-3 customShadow">
+        //     <div class="bg-primary card-body text-white border rounded-top">
+        //         <h2 class="card-title">${employee.name}</h2>
+        //         <h3 class="card-title">💻 Engineer</h3>
+        //     </div>
+        //     <div class="bg-light border rounded-bot">
+        //         <ul class="list-group m-4">
+        //             <li class="list-group-item">ID: ${employee.id}</li>
+        //             <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+        //             <li class="list-group-item">GitHub: ${employee.github}</li>
+        //         </ul>
+        //     </div>
+        // </section>
+        // `
+        // } else if (employee.getRole() === 'Intern') {
+        //     return `
+        // <section class="card border rounded m-3 customShadow">
+        //     <div class="bg-primary card-body text-white border rounded-top">
+        //         <h2 class="card-title">${employee.name}</h2>
+        //         <h3 class="card-title">🎓 Intern</h3>
+        //     </div>
+        //     <div class="bg-light border rounded-bot">
+        //         <ul class="list-group m-4">
+        //             <li class="list-group-item">ID: ${employee.id}</li>
+        //             <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
+        //             <li class="list-group-item">School: ${employee.school}</li>
+        //         </ul>
+        //     </div>
+        // </section>
+        // `
+        }
+    });
 }
 
 
