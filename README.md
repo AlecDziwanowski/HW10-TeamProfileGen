@@ -42,9 +42,6 @@ You are required to submit the following for review:
 
 
 ## To Do
-* write html that will be copied and pasted in js file, like README Generator
-    * paste in pageTemplate.js as template string?
-* delete team.html afterward
 * determine if package.json needs:
     "test": "jest --verbose test/*", (specifically the test/* thing)
     "start": "node index.js",
