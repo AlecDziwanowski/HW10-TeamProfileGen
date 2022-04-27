@@ -1,13 +1,12 @@
-### Walk-through Video: 32%
-* A walk-through video that demonstrates the functionality of the Team Profile Generator and passing tests must be submitted, and a link to the video should be included in your README file.
-* The walk-through video must show all four tests passing from the command line.
-* The walk-through video must demonstrate how a user would invoke the application from the command line.
-* The walk-through video must demonstrate how a user would enter responses to all of the prompts in the application.
-* The walk-through video must demonstrate a generated HTML file that matches the user input.
+https://drive.google.com/file/d/1S3-joWlZ3bXFz1DVU2WxcXWF9gJdNKgw/view
 
-## Review
-You are required to submit the following for review:
 
-* A walk-through video that demonstrates the functionality of the application and passing tests.
-* A sample HTML file generated using your application.
-* The URL of the GitHub repository, with a unique name and a readme describing the project.
+// icebox:
+// {
+//     type: 'input',
+//     message: 'Please enter your team name (e.g. Team Hasselhoff):',
+//     name: 'teamName',
+// },
+// store all prompts in separate file and export in, destructure on import and call in specific functions
+// store html in separate file and export in to writeHTML function
+// add validation for user inputs?

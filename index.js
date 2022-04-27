@@ -18,7 +18,7 @@ function managerPrompts() {
     inquirer.prompt([
         {
             type: 'input',
-            message: 'Please enter your team Manager\'s Name (e.g. David Hasselhoff):',
+            message: 'Please enter your team Manager\'s name (e.g. David Hasselhoff):',
             name: 'name',
         },
         {
@@ -49,7 +49,7 @@ function engineerPrompts() {
     inquirer.prompt([
         {
             type: 'input',
-            message: 'Please enter your Engineers\'s Name (e.g. David Hasselhoff):',
+            message: 'Please enter your Engineers\'s name (e.g. David Hasselhoff):',
             name: 'name',
         },
         {
@@ -80,7 +80,7 @@ function internPrompts() {
     inquirer.prompt([
         {
             type: 'input',
-            message: 'Please enter your Interns\'s Name (e.g. David Hasselhoff):',
+            message: 'Please enter your Interns\'s name (e.g. David Hasselhoff):',
             name: 'name',
         },
         {
@@ -201,7 +201,7 @@ function generateCards(employees) {
                 <ul class="list-group m-4">
                     <li class="list-group-item">ID: ${employee.id}</li>
                     <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
-                    <li class="list-group-item">GitHub: <a href="github.com/${employee.github}">${employee.github}</a></li>
+                    <li class="list-group-item">GitHub: <a href="https://github.com/${employee.github}" target="_blank">${employee.github}</a></li>
                 </ul>
             </div>
         </section>
@@ -228,17 +228,3 @@ function generateCards(employees) {
     // return the employee cards string with template literals to the template literal containing the base html elements
     return employeeCards;
 }
-
-
-
-
-
-// icebox:
-// {
-//     type: 'input',
-//     message: 'Please enter your team name (e.g. Team Hasselhoff):',
-//     name: 'teamName',
-// },
-// store all prompts in separate file and export in, destructure on import and call in specific functions
-// store html in separate file and export in to writeHTML function
-// add validation for user inputs?
