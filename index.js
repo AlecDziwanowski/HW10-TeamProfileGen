@@ -106,6 +106,7 @@ function internPrompts() {
         });
 }
 
+// prompts the user to choose what to do next
 function nextAction() {
     inquirer.prompt([
         {
@@ -132,8 +133,8 @@ function nextAction() {
         });
 }
 
+// Write the following text to a new html file
 function writeHTML(employees) {
-    // Write the following text to a new html file
     fs.writeFile('./dist/team.html', `
 <!DOCTYPE html>
 <html lang="en">
@@ -165,14 +166,13 @@ function writeHTML(employees) {
     })
 }
 
+// Generate html cards based on what employees the user chose and the employee information they inputted
 function generateCards(employees) {
+    // initialize string for template literals
     employeeCards = "";
+    // loop through array of employee objects
     employees.forEach(employee => {
-        console.log(employee.getRole());
-        console.log(employee);
-        console.log(employee.name);
-        console.log(employee.getRole() === 'Manager');
-
+        // manager employee card
         if (employee.getRole() === 'Manager') {
             employeeCards += 
     `   <section class="card border rounded m-3 customShadow col-2">
@@ -184,11 +184,12 @@ function generateCards(employees) {
                 <ul class="list-group m-4">
                     <li class="list-group-item">ID: ${employee.id}</li>
                     <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
-                    <li class="list-group-item">[Office Number: ${employee.officeNumber}</li>
+                    <li class="list-group-item">Office Number: ${employee.officeNumber}</li>
                 </ul>
             </div>
         </section>
     `
+        // engineer employee card
         } else if (employee.getRole() === 'Engineer') {
             employeeCards += 
     `    <section class="card border rounded m-3 customShadow col-2">
@@ -200,11 +201,12 @@ function generateCards(employees) {
                 <ul class="list-group m-4">
                     <li class="list-group-item">ID: ${employee.id}</li>
                     <li class="list-group-item">Email: <a href="mailto:${employee.email}">${employee.email}</a></li>
-                    <li class="list-group-item">GitHub: ${employee.github}</li>
+                    <li class="list-group-item">GitHub: <a href="github.com/${employee.github}">${employee.github}</a></li>
                 </ul>
             </div>
         </section>
     `
+        // intern employee card
         } else if (employee.getRole() === 'Intern') {
             employeeCards += 
     `    <section class="card border rounded m-3 customShadow col-2">
@@ -223,6 +225,7 @@ function generateCards(employees) {
     `
         }
     });
+    // return the employee cards string with template literals to the template literal containing the base html elements
     return employeeCards;
 }
 
@@ -230,7 +233,7 @@ function generateCards(employees) {
 
 
 
-    // icebox:
+// icebox:
 // {
 //     type: 'input',
 //     message: 'Please enter your team name (e.g. Team Hasselhoff):',
@@ -238,3 +241,4 @@ function generateCards(employees) {
 // },
 // store all prompts in separate file and export in, destructure on import and call in specific functions
 // store html in separate file and export in to writeHTML function
+// add validation for user inputs?
